@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Chengyu Liu — researcher and builder working across machine learning, machine unlearning, robot learning, and research software."
+    />
+    <meta name="theme-color" content="#f5f1e8" />
+    <title>Chengyu Liu — Researcher &amp; Builder</title>
+    <link rel="icon" href="public/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="hybrid.css?v=20260721-tabs" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <div class="header-inner">
+        <a class="site-name" href="#top" aria-label="Chengyu Liu, home">Chengyu Liu</a>
+
+        <nav class="site-nav" aria-label="Primary navigation" data-nav>
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="public/cv.pdf" target="_blank" rel="noreferrer">CV</a>
+        </nav>
+
+        <button class="theme-toggle" type="button" aria-label="Use dark theme" data-theme-toggle>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.25"></circle>
+            <path d="M12 2v2.1M12 19.9V22M4.93 4.93l1.48 1.48M17.59 17.59l1.48 1.48M2 12h2.1M19.9 12H22M4.93 19.07l1.48-1.48M17.59 6.41l1.48-1.48"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="intro page-shell" id="top" aria-labelledby="page-title">
+        <p class="eyebrow">Researcher &amp; builder · Singapore, GMT+8</p>
+        <h1 id="page-title">Chengyu Liu</h1>
+        <p class="intro-lead">
+          I study learning systems and build tools around the work.
+        </p>
+        <p class="intro-copy">
+          My research spans generative models, machine unlearning, and robot learning. My software
+          turns recurring research and personal-workflow problems into small, usable systems.
+        </p>
+
+        <div class="contact-links" aria-label="Contact and profile links">
+          <a href="mailto:e1554340@u.nus.edu">Email</a>
+          <a href="https://github.com/lelelelelelelelelelelelele" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="public/cv.pdf" target="_blank" rel="noreferrer">CV</a>
+        </div>
+
+        <div class="practice-band" aria-label="Research and building interests">
+          <div>
+            <span>Academic</span>
+            <p>Generative models, machine unlearning, and robot learning.</p>
+          </div>
+          <div>
+            <span>Build</span>
+            <p>Research tools, data products, and personal systems that are meant to be used.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="work-section page-shell" id="work" aria-labelledby="work-title">
+        <header class="section-intro">
+          <p class="section-index">01 / Selected work</p>
+          <div>
+            <h2 id="work-title">One practice, two modes.</h2>
+            <p>
+              Switch between academic work and the systems built around it.
+            </p>
+          </div>
+        </header>
+
+        <div class="work-switcher-wrap">
+          <div class="work-switcher" role="tablist" aria-label="Selected work view" data-work-tabs>
+            <button
+              class="work-tab"
+              type="button"
+              role="tab"
+              id="academic-tab"
+              aria-selected="true"
+              aria-controls="academic-panel"
+              data-work-tab="academic"
+            >
+              <span class="work-tab-index">01</span>
+              <span class="work-tab-copy">
+                <strong>Academic</strong>
+                <small>Papers &amp; active questions</small>
+              </span>
+            </button>
+            <button
+              class="work-tab"
+              type="button"
+              role="tab"
+              id="build-tab"
+              aria-selected="false"
+              aria-controls="build-panel"
+              tabindex="-1"
+              data-work-tab="build"
+            >
+              <span class="work-tab-index">02</span>
+              <span class="work-tab-copy">
+                <strong>Build</strong>
+                <small>Tools &amp; shipped systems</small>
+              </span>
+            </button>
+          </div>
+          <p class="work-tab-hint">Choose a lens. The work stays part of the same practice.</p>
+        </div>
+
+        <div class="work-panels">
+          <section
+            class="work-lane work-panel"
+            id="academic-panel"
+            role="tabpanel"
+            aria-labelledby="academic-tab"
+            data-work-panel="academic"
+          >
+            <header class="lane-header">
+              <p class="lane-label">Research</p>
+              <h3 id="research-lane-title">Questions I am working through</h3>
+            </header>
+
+            <article class="work-item">
+              <div class="item-meta">
+                <time datetime="2025">2025</time>
+                <span>Published · NeurIPS 2025</span>
+              </div>
+              <h4>Semantic Surgery</h4>
+              <p class="item-subtitle">Zero-Shot Concept Erasure in Diffusion Models</p>
+              <p>
+                Removing a requested concept while preserving as much surrounding generative
+                capability as possible.
+              </p>
+              <p class="citation">
+                Lexiang Xiong, <strong>Chengyu Liu</strong>, Jingwen Ye, Yan Liu, Yuecong Xu.
+              </p>
+              <div class="item-links">
+                <a href="https://neurips.cc/virtual/2025/loc/san-diego/poster/120054" target="_blank" rel="noreferrer">Paper page</a>
+                <a href="https://github.com/Lexiang-Xiong/Semantic-Surgery" target="_blank" rel="noreferrer">Code</a>
+              </div>
+            </article>
+
+            <article class="work-item">
+              <div class="item-meta">
+                <time datetime="2026">2026</time>
+                <span>Ongoing</span>
+              </div>
+              <h4>Adversarial deletion attacks on graph unlearning</h4>
+            </article>
+
+            <article class="work-item">
+              <div class="item-meta">
+                <time datetime="2026">2026</time>
+                <span>Ongoing</span>
+              </div>
+              <h4>Source-aware robot policies</h4>
+              <p>
+                Studying source validity and action-boundary behavior in flow-based visuomotor
+                policies. Public claims will follow the experiments, not precede them.
+              </p>
+              <p class="topics">Robot learning · Flow policies · Boundary behavior</p>
+            </article>
+
+            <article class="work-item">
+              <div class="item-meta">
+                <time datetime="2026">2026</time>
+                <span>Manuscript · Fourth author</span>
+              </div>
+              <h4>Composite Learning Adaptive Impedance Control of Robot Manipulators under Insufficient Excitation</h4>
+              <p class="citation">
+                Yang Ding, Yuxiao Liu, Jiajun Shen, <strong>Chengyu Liu</strong>, Xiaolong Yu, Wei Wang.
+              </p>
+            </article>
+          </section>
+
+          <section
+            class="work-lane work-panel"
+            id="build-panel"
+            role="tabpanel"
+            aria-labelledby="build-tab"
+            data-work-panel="build"
+          >
+            <header class="lane-header">
+              <p class="lane-label">Build</p>
+              <h3 id="build-lane-title">Systems I have put into use</h3>
+            </header>
+
+            <article class="work-item">
+              <div class="item-meta">
+                <time datetime="2026">2026</time>
+                <span>Shipped software</span>
+              </div>
+              <h4>arXiv Marker</h4>
+              <p>
+                A Zotero extension that resolves arXiv preprints into venue, ranking, and citation
+                context without leaving the literature workflow.
+              </p>
+              <div class="item-links">
+                <a href="https://github.com/lelelelelelelelelelelelele/arxiv-marker" target="_blank" rel="noreferrer">Repository</a>
+              </div>
+            </article>
+
+            <article class="work-item">
+              <div class="item-meta">
+                <time datetime="2026">2026</time>
+                <span>Active · Open source</span>
+              </div>
+              <h4>Blueprint Skill</h4>
+              <p>
+                Architecture documentation generated from repository evidence and maintained as
+                editable schema, prose, and diagrams.
+              </p>
+              <div class="item-links">
+                <a href="https://github.com/lelelelelelelelelelelelele/blueprint-skill" target="_blank" rel="noreferrer">Repository</a>
+              </div>
+            </article>
+
+            <article class="work-item">
+              <div class="item-meta">
+                <time datetime="2026">2026</time>
+                <span>Shipped · Web/PWA</span>
+              </div>
+              <h4>Context Anchor / Rail</h4>
+              <p>
+                A local-first execution companion that turns source material into focused,
+                one-step-at-a-time plans with contextual replanning.
+              </p>
+              <div class="item-links">
+                <a href="https://context-anchor.vercel.app/" target="_blank" rel="noreferrer">Live site</a>
+                <a href="https://github.com/lelelelelelelelelelelelele/context_anchor" target="_blank" rel="noreferrer">Code</a>
+              </div>
+            </article>
+
+            <article class="work-item">
+              <div class="item-meta">
+                <time datetime="2026">2026</time>
+                <span>Shipped software</span>
+              </div>
+              <h4>WorldWalker</h4>
+              <p>
+                A private-by-design travel footprint system that turns photo metadata into a
+                layered, explorable 3D map.
+              </p>
+              <div class="item-links">
+                <a href="https://travel-map-blond.vercel.app/" target="_blank" rel="noreferrer">Live site</a>
+              </div>
+            </article>
+
+            <article class="work-item">
+              <div class="item-meta">
+                <span>Local</span>
+                <span>Prototype</span>
+              </div>
+              <h4>DLlink</h4>
+              <p>
+                A local-first pipeline for importing and cleaning AI conversations, narrowed to
+                distilling them into reusable knowledge entries.
+              </p>
+            </article>
+
+            <article class="work-item">
+              <div class="item-meta">
+                <time datetime="2025">2025–26</time>
+                <span>Internal product</span>
+              </div>
+              <h4>Xiao Yu / RAG Robot</h4>
+              <p>
+                A shipped internal health-service retrieval assistant. It is engineering work,
+                not part of the main research narrative.
+              </p>
+            </article>
+          </section>
+        </div>
+      </section>
+
+      <section class="about-section page-shell" id="about" aria-labelledby="about-title">
+        <header class="section-intro">
+          <p class="section-index">02 / About</p>
+          <div>
+            <h2 id="about-title">A researcher who also ships.</h2>
+          </div>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>
+              I move between research and building: experiments sharpen the questions, and recurring
+              friction becomes small software for literature, data, and personal workflows.
+            </p>
+            <p>
+              Education, experience, and the fuller record remain in my
+              <a href="public/cv.pdf" target="_blank" rel="noreferrer">CV</a>.
+            </p>
+          </div>
+
+          <aside class="archive-note" aria-labelledby="working-style-title">
+            <p class="lane-label">Working style</p>
+            <h3 id="working-style-title">From question to artifact</h3>
+            <p>
+              Keep research claims narrow, make the evidence inspectable, and stop building when the
+              useful part is already real.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© <span data-year>2026</span> Chengyu Liu</p>
+        <div>
+          <a href="plain.html">Plain view</a>
+          <a href="mailto:e1554340@u.nus.edu">Email</a>
+          <a href="https://github.com/lelelelelelelelelelelelele" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="hybrid.js?v=20260721-tabs"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# Local Codex planning records (not part of the public site)
+task_plan.md
+findings.md
+progress.md
+
+# Local research, review, and workspace material
+.agents/
+.codex/
+docs/
+reports/
+work/
+
+# Unrelated local design assets
+public/held-ledger-*
+public/held-ledger-promo-assets/
