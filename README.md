@@ -42,7 +42,8 @@ Then open:
 5. Add robot-learning links only when a public artifact is ready.
 6. Keep published-paper authorship, venue, year, and evidence links together.
 7. Keep Jarvis off the public pages. Treat RAG Robot as internal product work and DLlink as a local prototype unless their public roles change.
-8. Replace `public/cv.pdf` independently when the public CV changes.
+8. Keep Paper Reading Workflow labeled `Released · Open source` and retain both its repository and latest-release links.
+9. Replace `public/cv.pdf` independently when the public CV changes.
 
 ## Public file map
 
