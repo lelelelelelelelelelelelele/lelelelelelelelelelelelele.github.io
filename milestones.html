@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="description" content="A dated evidence ledger for shipped projects and adoption signals.">
+  <title>Project Milestones · Evidence Ledger</title>
+  <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f3efe6;
+      --paper-deep: #e8e0d1;
+      --ink: #1f2422;
+      --muted: #696b65;
+      --rule: rgba(31, 36, 34, 0.18);
+      --accent: #b74f35;
+      --accent-soft: #ead1c5;
+      --moss: #355c4a;
+      --moss-soft: #d7e0d8;
+      --white: #fbf9f4;
+      --serif: Georgia, 'Times New Roman', serif;
+      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 11% 7%, rgba(183, 79, 53, 0.07), transparent 26rem),
+        linear-gradient(90deg, transparent 0, transparent calc(50% - 1px), rgba(31, 36, 34, 0.025) 50%, transparent calc(50% + 1px)),
+        var(--paper);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: rgba(183, 79, 53, 0.55);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover { color: var(--accent); }
+
+    .page {
+      width: min(100% - 40px, 1080px);
+      margin: 0 auto;
+      padding: 32px 0 52px;
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--ink);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--moss);
+    }
+
+    .status::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--moss);
+      content: '';
+      box-shadow: 0 0 0 4px var(--moss-soft);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(230px, 0.5fr);
+      gap: clamp(38px, 8vw, 104px);
+      align-items: end;
+      padding: clamp(64px, 10vw, 112px) 0 54px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .kicker {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(3.4rem, 9vw, 7.6rem);
+      font-weight: 400;
+      letter-spacing: -0.065em;
+      line-height: 0.82;
+    }
+
+    h1 em {
+      display: block;
+      color: var(--accent);
+      font-weight: 400;
+    }
+
+    .intro {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .intro strong {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .summary-item {
+      padding: 20px 0 22px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .summary-item + .summary-item { padding-left: clamp(18px, 4vw, 42px); }
+    .summary-item:last-child { border-right: 0; }
+
+    .summary-value {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(1.65rem, 4vw, 2.45rem);
+      line-height: 1.05;
+    }
+
+    .summary-label {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ledger { padding-top: 72px; }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 34px;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-label::after {
+      height: 1px;
+      flex: 1;
+      background: var(--rule);
+      content: '';
+    }
+
+    .entry {
+      display: grid;
+      grid-template-columns: 126px minmax(0, 1fr);
+      gap: clamp(24px, 6vw, 72px);
+      position: relative;
+      padding: 0 0 76px;
+    }
+
+    .entry + .entry { padding-top: 4px; }
+
+    .entry-date {
+      position: relative;
+      padding-top: 7px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .entry-date::after {
+      display: block;
+      width: 24px;
+      height: 2px;
+      margin-top: 16px;
+      background: var(--accent);
+      content: '';
+    }
+
+    .entry h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.65rem);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 1.02;
+    }
+
+    .entry-lead {
+      max-width: 780px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 30px 0 0;
+    }
+
+    .metric {
+      min-height: 142px;
+      padding: 20px;
+      border: 1px solid var(--rule);
+      background: rgba(251, 249, 244, 0.46);
+    }
+
+    .metric-value {
+      display: block;
+      color: var(--accent);
+      font-family: var(--serif);
+      font-size: clamp(2.3rem, 6vw, 4.1rem);
+      letter-spacing: -0.05em;
+      line-height: 0.95;
+    }
+
+    .metric-label {
+      display: block;
+      margin-top: 14px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.06em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .evidence {
+      padding: 21px 22px;
+      background: var(--moss-soft);
+    }
+
+    .evidence.boundary { background: var(--accent-soft); }
+
+    .evidence h3 {
+      margin: 0 0 9px;
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .evidence p,
+    .evidence ul {
+      margin: 0;
+      color: #444943;
+      font-size: 0.83rem;
+      line-height: 1.65;
+    }
+
+    .evidence ul { padding-left: 17px; }
+
+    .release-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      margin-top: 30px;
+      padding: 28px;
+      border: 1px solid var(--ink);
+      background: var(--white);
+      box-shadow: 8px 8px 0 var(--paper-deep);
+    }
+
+    .release-card h3 {
+      margin: 0 0 8px;
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-weight: 400;
+    }
+
+    .release-card p {
+      max-width: 630px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .release-mark {
+      min-width: 92px;
+      padding: 12px 14px;
+      border: 1px solid var(--moss);
+      color: var(--moss);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .sources {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px 22px;
+      margin-top: 24px;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.03em;
+    }
+
+    .rules {
+      display: grid;
+      grid-template-columns: 126px minmax(0, 1fr);
+      gap: clamp(24px, 6vw, 72px);
+      padding: 40px 0 50px;
+      border-top: 1px solid var(--ink);
+    }
+
+    .rules h2 {
+      margin: 0;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .rules ol {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 38px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: rule;
+    }
+
+    .rules li {
+      position: relative;
+      padding-left: 36px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      counter-increment: rule;
+    }
+
+    .rules li::before {
+      position: absolute;
+      left: 0;
+      top: -2px;
+      color: var(--accent);
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      content: counter(rule, decimal-leading-zero);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.64rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 760px) {
+      .page { width: min(100% - 28px, 1080px); padding-top: 20px; }
+      .topline { align-items: flex-start; font-size: 0.6rem; }
+      .hero { grid-template-columns: 1fr; gap: 30px; padding: 58px 0 42px; }
+      h1 { font-size: clamp(3.35rem, 19vw, 5.4rem); }
+      .intro { max-width: 34rem; }
+      .summary-item { padding-right: 10px; }
+      .summary-item + .summary-item { padding-left: 12px; }
+      .entry, .rules { grid-template-columns: 1fr; gap: 24px; }
+      .entry-date { display: flex; align-items: center; gap: 12px; }
+      .entry-date::after { width: 20px; margin: 0; }
+      .metrics { grid-template-columns: 1fr; }
+      .metric { min-height: 0; }
+      .evidence-grid { grid-template-columns: 1fr; }
+      .rules ol { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 7px; }
+    }
+
+    @media (max-width: 440px) {
+      .topline > span:last-child { text-align: right; }
+      .summary { grid-template-columns: 1fr 1fr; }
+      .summary-item:nth-child(2) { border-right: 0; }
+      .summary-item:nth-child(3) {
+        grid-column: 1 / -1;
+        padding-left: 0;
+        border-top: 1px solid var(--rule);
+      }
+      .release-card { grid-template-columns: 1fr; }
+      .release-mark { justify-self: start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="topline">
+      <span class="status">Public record · unlisted</span>
+      <span>Snapshot 2026-07-22 · GMT+8</span>
+    </div>
+
+    <header class="hero">
+      <div>
+        <p class="kicker">Project evidence ledger</p>
+        <h1>Milestones,<em>with receipts.</em></h1>
+      </div>
+      <p class="intro">
+        <strong>Shipped work, dated evidence, and careful claims.</strong>
+        A low-traffic public record of releases and adoption signals. Counts are snapshots—not live counters or user totals.
+      </p>
+    </header>
+
+    <section class="summary" aria-label="Ledger summary">
+      <div class="summary-item">
+        <span class="summary-value">2</span>
+        <span class="summary-label">Projects recorded</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-value">2</span>
+        <span class="summary-label">Public releases</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-value">22 Jul</span>
+        <span class="summary-label">Snapshot date · 2026</span>
+      </div>
+    </section>
+
+    <section class="ledger" aria-labelledby="ledger-title">
+      <div class="section-label" id="ledger-title">Evidence entries · 2026</div>
+
+      <article class="entry">
+        <div class="entry-date">22 Jul 2026</div>
+        <div>
+          <h2>arXiv Marker found its first adoption signal.</h2>
+          <p class="entry-lead">A Firefox extension for marking arXiv papers in the browser and exporting structured Markdown notes. Repository attention is modest; release traffic tells a more useful story.</p>
+
+          <div class="metrics" aria-label="arXiv Marker metrics">
+            <div class="metric">
+              <span class="metric-value">6</span>
+              <span class="metric-label">GitHub stars</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">365</span>
+              <span class="metric-label">XPI package downloads<br>328 + 37</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">2,417</span>
+              <span class="metric-label">Update manifest requests</span>
+            </div>
+          </div>
+
+          <div class="evidence-grid">
+            <div class="evidence">
+              <h3>What it signals</h3>
+              <p>A small visible audience, but materially more interaction with the released product than the star count alone suggests. The useful milestone is distribution activity—not a claim of scale.</p>
+            </div>
+            <div class="evidence boundary">
+              <h3>Interpretation boundary</h3>
+              <ul>
+                <li>Downloads are requests, not unique users.</li>
+                <li>A package request does not prove an install.</li>
+                <li>Manifest traffic can include automatic update checks.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sources">
+            <span>2,782 total release-asset requests</span>
+            <a href="https://github.com/lelelelelelelelelelelelele/arxiv-marker">Repository ↗</a>
+            <a href="https://github.com/lelelelelelelelelelelelele/arxiv-marker/releases">Release evidence ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <div class="entry-date">22 Jul 2026</div>
+        <div>
+          <h2>Paper Reading Workflow became a public package.</h2>
+          <p class="entry-lead">A two-stage academic reading workflow: active working notes first, then durable Obsidian archival with a self-contained HTML report.</p>
+
+          <div class="release-card">
+            <div>
+              <h3>v1.0.1 · current release</h3>
+              <p>v1.0.0 was published at 18:06 UTC on 21 July; v1.0.1 followed at 19:03 UTC. The repository and its paired skill bundle are public under the MIT License.</p>
+            </div>
+            <div class="release-mark">Released</div>
+          </div>
+
+          <div class="evidence-grid">
+            <div class="evidence">
+              <h3>What it signals</h3>
+              <p>The workflow moved from private practice into a versioned, installable public package. The milestone is release completeness and reproducibility.</p>
+            </div>
+            <div class="evidence boundary">
+              <h3>Interpretation boundary</h3>
+              <p>The release has no binary assets, so there is no comparable package-download count. Repository visibility alone does not establish usage.</p>
+            </div>
+          </div>
+
+          <div class="sources">
+            <a href="https://github.com/lelelelelelelelelelelelele/paper-reading-workflow">Repository ↗</a>
+            <a href="https://github.com/lelelelelelelelelelelelele/paper-reading-workflow/releases/latest">Latest release ↗</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="rules" aria-labelledby="rules-title">
+      <h2 id="rules-title">Reading rules</h2>
+      <ol>
+        <li>Every count is paired with a snapshot date.</li>
+        <li>Shipped facts stay separate from future plans.</li>
+        <li>Requests, downloads, installs, active users, and stars are different signals.</li>
+        <li>Each entry states what its evidence cannot prove.</li>
+      </ol>
+    </section>
+
+    <footer>
+      <span>Project ledger · evidence over vanity metrics</span>
+      <span>Last updated 2026-07-22</span>
+    </footer>
+  </main>
+</body>
+</html>
