@@ -2,6 +2,12 @@
 
 A zero-build personal homepage published with GitHub Pages. It presents research and shipped software as two views of the same practice; the CV remains a secondary public document.
 
+## Published site
+
+- Homepage: <https://lelelelelelelelelelelelele.github.io/>
+- Plain index: <https://lelelelelelelelelelelelele.github.io/plain.html>
+- Source: <https://github.com/lelelelelelelelelelelelele/lelelelelelelelelelelelele.github.io>
+
 ## Public pages
 
 - `index.html` — the formal researcher-and-builder homepage. Its **Academic / Build** switcher changes the work view without duplicating the page.
