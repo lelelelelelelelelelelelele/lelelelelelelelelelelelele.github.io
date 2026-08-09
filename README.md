@@ -38,7 +38,7 @@ Then open:
 1. Keep research states literal: `Published`, `Working paper`, or `Ongoing`.
 2. Present the graph-unlearning work publicly as `Adversarial deletion attacks on graph unlearning · Ongoing`; do not expose submission status, unpublished results, or the full internal paper title.
 3. Treat OpenGU as an upstream platform used and modified for the research, not as the research title or a personal platform contribution.
-4. Keep the adaptive-impedance-control paper labeled `Manuscript · Fourth author`.
+4. Keep the adaptive-impedance-control paper labeled `Conference Paper · Outstanding Paper, SYS-ELE 2026 · Fourth author`.
 5. Add robot-learning links only when a public artifact is ready.
 6. Keep published-paper authorship, venue, year, and evidence links together.
 7. Keep Jarvis off the public pages. Treat RAG Robot as internal product work and DLlink as a local prototype unless their public roles change.
