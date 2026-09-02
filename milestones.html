@@ -348,6 +348,55 @@
       letter-spacing: 0.03em;
     }
 
+    .snapshot-history {
+      margin-top: 30px;
+      overflow-x: auto;
+    }
+
+    .snapshot-history table {
+      width: 100%;
+      min-width: 620px;
+      border-collapse: collapse;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+    }
+
+    .snapshot-history th,
+    .snapshot-history td {
+      padding: 11px 12px;
+      border-top: 1px solid var(--rule);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .snapshot-history th:first-child,
+    .snapshot-history td:first-child {
+      padding-left: 0;
+      text-align: left;
+    }
+
+    .snapshot-history th {
+      color: var(--muted);
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .snapshot-history td {
+      color: var(--ink);
+    }
+
+    .snapshot-history caption {
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.66rem;
+      letter-spacing: 0.06em;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
     .rules {
       display: grid;
       grid-template-columns: 126px minmax(0, 1fr);
@@ -445,7 +494,7 @@
   <main class="page">
     <div class="topline">
       <span class="status">Public record · unlisted</span>
-      <span>Snapshot 2026-07-22 · GMT+8</span>
+      <span>Snapshot 2026-09-03 · GMT+8</span>
     </div>
 
     <header class="hero">
@@ -466,10 +515,10 @@
       </div>
       <div class="summary-item">
         <span class="summary-value">2</span>
-        <span class="summary-label">Public releases</span>
+        <span class="summary-label">Public-release projects</span>
       </div>
       <div class="summary-item">
-        <span class="summary-value">22 Jul</span>
+        <span class="summary-value">03 Sep</span>
         <span class="summary-label">Snapshot date · 2026</span>
       </div>
     </section>
@@ -478,45 +527,84 @@
       <div class="section-label" id="ledger-title">Evidence entries · 2026</div>
 
       <article class="entry">
-        <div class="entry-date">22 Jul 2026</div>
+        <div class="entry-date">03 Sep 2026</div>
         <div>
-          <h2>arXiv Marker found its first adoption signal.</h2>
-          <p class="entry-lead">A Firefox extension for marking arXiv papers in the browser and exporting structured Markdown notes. Repository attention is modest; release traffic tells a more useful story.</p>
+          <h2>arXiv Marker shipped its first native Zotero plugin.</h2>
+          <p class="entry-lead">The project first shipped as a CLI / Web tool in <code>v0.1.0</code> on 31 May, then crossed the more meaningful product boundary with the native Zotero 7/9 plugin in <code>v0.2.0</code> on 4 June. <code>v0.2.1</code> followed on 7 June with Zotero 9 compatibility fixes.</p>
 
-          <div class="metrics" aria-label="arXiv Marker metrics">
+          <div class="metrics" aria-label="arXiv Marker current metrics">
             <div class="metric">
-              <span class="metric-value">6</span>
-              <span class="metric-label">GitHub stars</span>
+              <span class="metric-value">9</span>
+              <span class="metric-label">GitHub stars<br>current snapshot</span>
             </div>
             <div class="metric">
-              <span class="metric-value">365</span>
-              <span class="metric-label">XPI package downloads<br>328 + 37</span>
+              <span class="metric-value">612</span>
+              <span class="metric-label">XPI package downloads<br>38 + 574</span>
             </div>
             <div class="metric">
-              <span class="metric-value">2,417</span>
-              <span class="metric-label">Update manifest requests</span>
+              <span class="metric-value">6,687</span>
+              <span class="metric-label">Update manifest requests<br>current snapshot</span>
             </div>
           </div>
 
           <div class="evidence-grid">
             <div class="evidence">
               <h3>What it signals</h3>
-              <p>A small visible audience, but materially more interaction with the released product than the star count alone suggests. The useful milestone is distribution activity—not a claim of scale.</p>
+              <p>The first shipping milestone is real distribution: a usable Zotero plugin, a public release, and measurable asset traffic. The stronger signal is the XPI count; manifest traffic is useful context, not an install count.</p>
             </div>
             <div class="evidence boundary">
               <h3>Interpretation boundary</h3>
               <ul>
                 <li>Downloads are requests, not unique users.</li>
                 <li>A package request does not prove an install.</li>
-                <li>Manifest traffic can include automatic update checks.</li>
+                <li>The current asset set is not assumed to be a monotonic continuation of the July snapshot.</li>
               </ul>
             </div>
           </div>
 
+          <div class="snapshot-history">
+            <table>
+              <caption>One project · dated adoption snapshots</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Snapshot</th>
+                  <th scope="col">Stars</th>
+                  <th scope="col">XPI</th>
+                  <th scope="col">Manifest</th>
+                  <th scope="col">All assets</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>22 Jul 2026 · historical</td>
+                  <td>6</td>
+                  <td>365<br>(328 + 37)</td>
+                  <td>2,417</td>
+                  <td>2,782</td>
+                </tr>
+                <tr>
+                  <td>03 Sep 2026 · current</td>
+                  <td>9</td>
+                  <td>612<br>(38 + 574)</td>
+                  <td>6,687</td>
+                  <td>7,299</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="release-card">
+            <div>
+              <h3>Received first PR</h3>
+              <p>arxiv-marker received its first real external contribution on 24 August. <a href="https://github.com/lelelelelelelelelelelelele/arxiv-marker/pull/3">View PR #3 ↗</a></p>
+            </div>
+          </div>
+
           <div class="sources">
-            <span>2,782 total release-asset requests</span>
-            <a href="https://github.com/lelelelelelelelelelelelele/arxiv-marker">Repository ↗</a>
-            <a href="https://github.com/lelelelelelelelelelelelele/arxiv-marker/releases">Release evidence ↗</a>
+            <span>7,299 total current release-asset requests</span>
+            <a href="https://github.com/lelelelelelelelelelelelele/arxiv-marker/releases/tag/v0.2.0">v0.2.0 release ↗</a>
+            <a href="https://github.com/lelelelelelelelelelelelele/arxiv-marker/releases/tag/v0.2.1">v0.2.1 release ↗</a>
+            <a href="https://github.com/syt2/zotero-addons-scraper/pull/113">Zotero market PR #113 ↗</a>
           </div>
         </div>
       </article>
@@ -566,7 +654,7 @@
 
     <footer>
       <span>Project ledger · evidence over vanity metrics</span>
-      <span>Last updated 2026-07-22</span>
+      <span>Last updated 2026-09-03</span>
     </footer>
   </main>
 </body>
